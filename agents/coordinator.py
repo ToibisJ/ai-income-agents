@@ -8,6 +8,7 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+import sys
 import anthropic
 from rich.console import Console
 from rich.panel import Panel
@@ -20,7 +21,10 @@ from config.settings import (
     JOURNAL_DIR,
 )
 
-console = Console()
+console = Console(highlight=False, emoji=False, force_terminal=True, width=100)
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
 
 
@@ -48,6 +52,7 @@ def write_journal(session: int, log: list[dict]):
 
 def ask_strategist(state: dict, executor_report: str | None = None) -> str:
     context = json.dumps(state, ensure_ascii=False, indent=2)
+    executor_section = ("EXECUTOR REPORT:\n" + executor_report) if executor_report else "This is the first session."
     messages = [
         {
             "role": "user",
@@ -57,7 +62,7 @@ Your goal: maximize legal income starting with ₪1,000 budget.
 SHARED STATE:
 {context}
 
-{"EXECUTOR REPORT:\n" + executor_report if executor_report else "This is the first session."}
+{executor_section}
 
 Analyze the situation and decide:
 1. What is the best income strategy right now?
