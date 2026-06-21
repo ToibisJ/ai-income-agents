@@ -1,0 +1,17 @@
+{
+  "session": 0,
+  "started": null,
+  "budget": {
+    "total_ils": 1000,
+    "spent_ils": 0,
+    "revenue_ils": 0,
+    "net_ils": 0
+  },
+  "current_strategy": null,
+  "active_projects": [],
+  "completed_actions": [],
+  "pending_actions": [],
+  "strategist_notes": [],
+  "executor_notes": [],
+  "decisions": []
+}
