@@ -7,6 +7,8 @@ Starting budget: ₪1,000
 Goal: Maximize income, legally, as fast as possible  
 Rules: No illegal activity. Full transparency.
 
+**Status update (2026-07-10):** The simulated two-agent loop below (Strategist/Executor) ran 3 sessions on 2026-06-21 and stalled — it correctly designed a full CV-writing launch kit but no human ever executed the human-required steps (posting, replying to DMs). As of 2026-07-10, Yonatan is directly driving execution with George (Claude Code) assisting — real budget (₪600, later ₪25/day), real target ($3,000-4,000/mo to start). See `docs/strategy.md` → "Current Decision" for the live plan and `journal/2026-07-10-real-session-1.md` for how we got here. The architecture diagram below describes the original simulated-agent design; it is not currently how this project runs.
+
 ## How It Works
 
 ```
